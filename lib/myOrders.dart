@@ -283,7 +283,11 @@ class _MyOrdersState extends State<MyOrders> {
                                                 BorderRadius.circular(20.0),
                                           ),
                                           elevation: 15,
-                                          color: Colors.green,
+                                          color: customOrderList[index]
+                                                      ["status"] ==
+                                                  "P"
+                                              ? Colors.red
+                                              : Colors.green,
                                           margin: EdgeInsets.only(
                                               left: 30, right: 30, top: 15),
                                           child: ListTile(
