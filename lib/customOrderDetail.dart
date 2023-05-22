@@ -36,7 +36,7 @@ class _CustomOrderDetailState extends State<CustomOrderDetail> {
                     builder: (ctx) => AlertDialog(
                       title: const Text("Sure?"),
                       content: const Text(
-                          "The selected order will be marked prepared and will be deleted from this app."),
+                          "The selected order will be marked prepared and will not be modified later."),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () {
@@ -136,7 +136,7 @@ class _CustomOrderDetailState extends State<CustomOrderDetail> {
                           elevation: 10,
                         )
                       : Container(
-                          child: Center(child: Text("Photo nahi hai!")),
+                          child: Center(child: Text("Photo Cake nahi hai!")),
                         ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 30),

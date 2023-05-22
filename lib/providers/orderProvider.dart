@@ -45,6 +45,7 @@ class OrdersProvider with ChangeNotifier {
         return;
       }
       extractedData.forEach((orderId, orderData) {
+        modifyDeliveryTime(orderData);
         loadedOrders.add({
           ...orderData,
           "orderKey": orderId,
@@ -64,6 +65,24 @@ class OrdersProvider with ChangeNotifier {
     } catch (error) {
       throw error;
     }
+  }
+
+  void modifyDeliveryTime(dynamic orderData) {
+    var time = orderData["deliveryTime"];
+    var timeArray = time.toString().split(":");
+    var hrs = int.parse(timeArray[0]);
+    var modifiedHrs = hrs - 1;
+    if (modifiedHrs == 0) {
+      modifiedHrs = 12;
+    }
+    String modHrs = modifiedHrs.toString();
+    if (modifiedHrs < 10) {
+      modHrs = "0" + modHrs;
+    }
+
+    var modifiedTime = modHrs + ":" + timeArray[1];
+
+    orderData["deliveryTime"] = modifiedTime;
   }
 
   Future<void> updateOrderSeenBy(String month, String year, String date,
