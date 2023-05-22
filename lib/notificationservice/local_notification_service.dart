@@ -44,7 +44,7 @@ class LocalNotificationService {
       const NotificationDetails notificationDetails = NotificationDetails(
         android: AndroidNotificationDetails(
           "Sweet-Shop-App-2",
-          "Sweet-Shop-App-2channel",
+          "Sweet-Shop-App-2",
           importance: Importance.max,
           priority: Priority.high,
           playSound: true,

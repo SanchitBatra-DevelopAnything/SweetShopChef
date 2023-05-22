@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:sweet_shop/providers/notificationProvider.dart';
 import 'package:sweet_shop/providers/orderProvider.dart';
 
+import 'notificationservice/local_notification_service.dart';
+
 class MyOrders extends StatefulWidget {
   const MyOrders({Key? key}) : super(key: key);
 
@@ -52,7 +54,7 @@ class _MyOrdersState extends State<MyOrders> {
           print(message.notification!.title);
           print(message.notification!.body);
           print("message.data11 ${message.data}");
-          //LocalNotificationService.createanddisplaynotification(message);
+          LocalNotificationService.createanddisplaynotification(message);
         }
       },
     );

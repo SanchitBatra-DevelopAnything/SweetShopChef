@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "911256869367",
-    "project_id": "chefnotifications",
-    "storage_bucket": "chefnotifications.appspot.com"
+    "project_number": "452914079596",
+    "firebase_url": "https://muskan-admin-app-default-rtdb.firebaseio.com",
+    "project_id": "muskan-admin-app",
+    "storage_bucket": "muskan-admin-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:911256869367:android:026ada8a74c82373ecf6f2",
+        "mobilesdk_app_id": "1:452914079596:android:42ef2c36fc52980a8db549",
         "android_client_info": {
-          "package_name": "com.example.muskan_chef_app"
+          "package_name": "com.example.muskan_shop"
         }
       },
       "oauth_client": [
         {
-          "client_id": "911256869367-954623d03okni2b3e494dsdnar8biq1h.apps.googleusercontent.com",
+          "client_id": "452914079596-05qumhaek96d52f9csdhfipn81h3v5b1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZJswERjGLUUO74LfLop4AHqEjlNsCX_I"
+          "current_key": "AIzaSyDcpvkdwXxc5nUe6PLvu9VQhlB_mpp5LqA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "911256869367-954623d03okni2b3e494dsdnar8biq1h.apps.googleusercontent.com",
+              "client_id": "452914079596-05qumhaek96d52f9csdhfipn81h3v5b1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -36,27 +37,56 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:911256869367:android:a9805226fdf8a336ecf6f2",
+        "mobilesdk_app_id": "1:452914079596:android:eadd10dbf3403ac68db549",
         "android_client_info": {
           "package_name": "com.example.sweet_shop"
         }
       },
       "oauth_client": [
         {
-          "client_id": "911256869367-954623d03okni2b3e494dsdnar8biq1h.apps.googleusercontent.com",
+          "client_id": "452914079596-05qumhaek96d52f9csdhfipn81h3v5b1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZJswERjGLUUO74LfLop4AHqEjlNsCX_I"
+          "current_key": "AIzaSyDcpvkdwXxc5nUe6PLvu9VQhlB_mpp5LqA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "911256869367-954623d03okni2b3e494dsdnar8biq1h.apps.googleusercontent.com",
+              "client_id": "452914079596-05qumhaek96d52f9csdhfipn81h3v5b1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452914079596:android:4d16b208b03e30968db549",
+        "android_client_info": {
+          "package_name": "com.muskan.shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "452914079596-05qumhaek96d52f9csdhfipn81h3v5b1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcpvkdwXxc5nUe6PLvu9VQhlB_mpp5LqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "452914079596-05qumhaek96d52f9csdhfipn81h3v5b1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
