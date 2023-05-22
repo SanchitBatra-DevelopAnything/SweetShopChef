@@ -119,12 +119,14 @@ class _RegularOrderDetailState extends State<RegularOrderDetail> {
                     },
                   ),
                 ),
-                (particulars != "" && particulars != null)
+                ((particulars != "" && particulars != null) &&
+                        workerType == "Cake Orders")
                     ? Divider(
                         color: Colors.black,
                       )
                     : Container(),
-                (particulars != "" && particulars != null)
+                ((particulars != "" && particulars != null) &&
+                        workerType == "Cake Orders")
                     ? Flexible(
                         flex: 4,
                         child: Text(

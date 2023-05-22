@@ -133,10 +133,23 @@ class _MyOrdersState extends State<MyOrders> {
         .fetchOrders(month, year, date);
   }
 
+  getAspectList(List<dynamic> allRegularOrders, String type) {
+    if (type == "Cake Orders") {
+      return allRegularOrders
+          .where((order) => order["cakeItems"].length > 0)
+          .toList();
+    } else {
+      return allRegularOrders
+          .where((order) => order["snackItems"].length > 0)
+          .toList();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var type = Provider.of<OrdersProvider>(context).workerType;
-    var regularOrderList = Provider.of<OrdersProvider>(context).regularOrders;
+    var regularOrderList =
+        getAspectList(Provider.of<OrdersProvider>(context).regularOrders, type);
     var customOrderList = Provider.of<OrdersProvider>(context).customOrders;
     return WillPopScope(
         onWillPop: () async {
@@ -174,9 +187,9 @@ class _MyOrdersState extends State<MyOrders> {
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: type == "Cake Orders"
-                            ? SwitchListTile(
+                    type == "Cake Orders"
+                        ? Flexible(
+                            child: SwitchListTile(
                                 activeColor: Colors.green,
                                 inactiveTrackColor: Colors.grey,
                                 title: Text(
@@ -191,9 +204,9 @@ class _MyOrdersState extends State<MyOrders> {
                                   setState(() {
                                     _toggled = value;
                                   });
-                                })
-                            : Container(),
-                        flex: 2),
+                                }),
+                            flex: 2)
+                        : Container(),
                     Divider(
                       color: Colors.green,
                     ),
