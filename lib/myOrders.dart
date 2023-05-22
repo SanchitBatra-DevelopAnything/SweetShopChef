@@ -222,7 +222,17 @@ class _MyOrdersState extends State<MyOrders> {
                                                 BorderRadius.circular(20.0),
                                           ),
                                           elevation: 15,
-                                          color: Colors.green,
+                                          color: (type == "Cake Orders" &&
+                                                  regularOrderList[index]
+                                                          ["cakesPrepared"] ==
+                                                      true)
+                                              ? Color(0xff75bde0)
+                                              : (type != "Cake Orders" &&
+                                                      regularOrderList[index][
+                                                              "snacksPrepared"] ==
+                                                          true)
+                                                  ? Color(0xff75bde0)
+                                                  : Color(0xff27ba88),
                                           margin: EdgeInsets.only(
                                               left: 30, right: 30, top: 15),
                                           child: ListTile(
@@ -286,8 +296,8 @@ class _MyOrdersState extends State<MyOrders> {
                                           color: customOrderList[index]
                                                       ["status"] ==
                                                   "P"
-                                              ? Colors.red
-                                              : Colors.green,
+                                              ? Color(0xff75bde0)
+                                              : Color(0xff27ba88),
                                           margin: EdgeInsets.only(
                                               left: 30, right: 30, top: 15),
                                           child: ListTile(

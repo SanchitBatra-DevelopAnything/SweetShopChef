@@ -45,7 +45,12 @@ class OrdersProvider with ChangeNotifier {
         return;
       }
       extractedData.forEach((orderId, orderData) {
-        loadedOrders.add({...orderData, "orderKey": orderId});
+        loadedOrders.add({
+          ...orderData,
+          "orderKey": orderId,
+          "cakesPrepared": false,
+          "snacksPrepared": false
+        });
       });
       print("Loaded orders = ");
       print(loadedOrders);
@@ -154,6 +159,8 @@ class OrdersProvider with ChangeNotifier {
   void segregateOrders(List<dynamic> allOrders) {
     _customOrders = [];
     _regularOrders = [];
+    var cakesPrepared = false;
+    var snacksPrepared = false;
     allOrders.forEach((element) {
       if (element["orderType"] != "regular") {
         _customOrders.add(element);
@@ -173,6 +180,20 @@ class OrdersProvider with ChangeNotifier {
             });
         element["cakeItems"] = cakeItems;
         element["snackItems"] = snackItems;
+
+        var cakeNotPrepared = cakeItems
+            .firstWhere((cake) => cake["prepared"] == "NO", orElse: () => null);
+
+        var snackNotPrepared = snackItems.firstWhere(
+            (snack) => snack["prepared"] == "NO",
+            orElse: () => null);
+
+        if (cakeNotPrepared == null) {
+          element["cakesPrepared"] = true;
+        }
+        if (snacksPrepared == null) {
+          element["snacksPrepared"] = true;
+        }
         _regularOrders.add(element);
       }
     });
