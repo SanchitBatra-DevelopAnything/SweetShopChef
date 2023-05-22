@@ -1,7 +1,10 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:sweet_shop/customOrderDetail.dart';
+import 'package:sweet_shop/providers/notificationProvider.dart';
 import 'package:sweet_shop/providers/orderProvider.dart';
 import 'package:sweet_shop/regularOrderDetail.dart';
 import 'package:sweet_shop/workerType.dart';
@@ -9,8 +12,17 @@ import 'package:provider/provider.dart';
 
 import 'myOrders.dart';
 
+Future<void> backgroundHandler(RemoteMessage message) async {
+  print(message.data.toString());
+  print(message.notification!.title);
+}
+
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage(backgroundHandler);
   runApp(const MyApp());
 }
 
@@ -23,6 +35,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => OrdersProvider()),
+        ChangeNotifierProvider(
+          create: (context) => notificationProvider(),
+        )
       ],
       child: MaterialApp(
         title: 'Sweet Shop',

@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "911256869367",
+    "project_id": "chefnotifications",
+    "storage_bucket": "chefnotifications.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911256869367:android:026ada8a74c82373ecf6f2",
+        "android_client_info": {
+          "package_name": "com.example.muskan_chef_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911256869367-954623d03okni2b3e494dsdnar8biq1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZJswERjGLUUO74LfLop4AHqEjlNsCX_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911256869367-954623d03okni2b3e494dsdnar8biq1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911256869367:android:a9805226fdf8a336ecf6f2",
+        "android_client_info": {
+          "package_name": "com.example.sweet_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911256869367-954623d03okni2b3e494dsdnar8biq1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZJswERjGLUUO74LfLop4AHqEjlNsCX_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911256869367-954623d03okni2b3e494dsdnar8biq1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
