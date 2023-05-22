@@ -49,7 +49,7 @@ class OrdersProvider with ChangeNotifier {
           ...orderData,
           "orderKey": orderId,
           "cakesPrepared": false,
-          "snacksPrepared": false
+          "snacksPrepared": false,
         });
       });
       print("Loaded orders = ");
@@ -191,7 +191,7 @@ class OrdersProvider with ChangeNotifier {
         if (cakeNotPrepared == null) {
           element["cakesPrepared"] = true;
         }
-        if (snacksPrepared == null) {
+        if (snackNotPrepared == null) {
           element["snacksPrepared"] = true;
         }
         _regularOrders.add(element);
