@@ -111,13 +111,13 @@ class _WorkerTypeState extends State<WorkerType> {
               SizedBox(
                 height: 15,
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
                   Provider.of<OrdersProvider>(context, listen: false)
                       .workerType = type;
                   Navigator.of(context).pushReplacementNamed('/orders');
                 },
-                color: Colors.green,
+                style: ElevatedButton.styleFrom(primary: Colors.green),
                 child: Text(
                   "PROCEED",
                   style: TextStyle(color: Colors.white),

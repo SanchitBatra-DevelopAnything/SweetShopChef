@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:sweet_shop/providers/notificationProvider.dart';
+
 class OrdersProvider with ChangeNotifier {
   List<dynamic> _regularOrders = [];
   List<dynamic> _customOrders = [];
@@ -215,6 +217,7 @@ class OrdersProvider with ChangeNotifier {
         }
         _regularOrders.add(element);
       }
+      // notifyListeners();
     });
   }
 

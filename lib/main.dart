@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
           // Notice that the counter didn't reset back to zero; the application
           // is not restarted.
           primarySwatch: Colors.green,
-          accentColor: Colors.white,
+          hintColor: Colors.white,
         ),
         routes: {
           '/': (context) => WorkerType(),

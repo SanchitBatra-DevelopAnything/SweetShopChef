@@ -376,7 +376,7 @@ class _MyOrdersState extends State<MyOrders> {
                                               color: Colors.white,
                                             ),
                                             title: Text(
-                                              regularOrderList[index]
+                                              customOrderList[index]
                                                       ["deliveryTime"] +
                                                   " Tak Chahiye ",
                                               style: TextStyle(
