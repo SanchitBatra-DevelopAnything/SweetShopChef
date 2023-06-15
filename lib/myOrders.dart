@@ -370,7 +370,7 @@ class _MyOrdersState extends State<MyOrders> {
                                           margin: EdgeInsets.only(
                                               left: 30, right: 30, top: 15),
                                           child: ListTile(
-                                            trailing: Icon(
+                                            trailing: const Icon(
                                               Icons.arrow_forward_ios,
                                               size: 20,
                                               color: Colors.white,
@@ -379,14 +379,14 @@ class _MyOrdersState extends State<MyOrders> {
                                               customOrderList[index]
                                                       ["deliveryTime"] +
                                                   " Tak Chahiye ",
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 20,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             subtitle: Container(
                                               margin: EdgeInsets.only(top: 7),
-                                              child: Text(
+                                              child: const Text(
                                                 "CUSTOM ORDER",
                                                 style: TextStyle(
                                                     backgroundColor:
