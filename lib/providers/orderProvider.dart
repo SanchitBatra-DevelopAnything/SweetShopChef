@@ -257,4 +257,22 @@ class OrdersProvider with ChangeNotifier {
         .where((element) => element["orderKey"] == selectedOrderKey)
         .toList()[0]["photoUrl"];
   }
+
+  String getFlavour() {
+    return _customOrders
+        .where((element) => element["orderKey"] == selectedOrderKey)
+        .toList()[0]["flavour"];
+  }
+
+  String getMessage() {
+    return _customOrders
+        .where((element) => element["orderKey"] == selectedOrderKey)
+        .toList()[0]["message"];
+  }
+
+  num getPound() {
+    return _customOrders
+        .where((element) => element["orderKey"] == selectedOrderKey)
+        .toList()[0]["weight"];
+  }
 }

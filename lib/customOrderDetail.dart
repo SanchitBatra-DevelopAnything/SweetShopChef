@@ -20,6 +20,11 @@ class _CustomOrderDetailState extends State<CustomOrderDetail> {
         Provider.of<OrdersProvider>(context).selectedOrderKey;
     var particulars = Provider.of<OrdersProvider>(context, listen: false)
         .getSelectedOrderParticulars("custom");
+    var flavour =
+        Provider.of<OrdersProvider>(context, listen: false).getFlavour();
+    var weight = Provider.of<OrdersProvider>(context, listen: false).getPound();
+    var message =
+        Provider.of<OrdersProvider>(context, listen: false).getMessage();
     var imgUrl =
         Provider.of<OrdersProvider>(context, listen: false).getImgUrl();
     var photoUrl =
@@ -121,6 +126,7 @@ class _CustomOrderDetailState extends State<CustomOrderDetail> {
                   ),
                   photoUrl != "not-uploaded"
                       ? Card(
+                          elevation: 10,
                           child: Image.network(photoUrl, frameBuilder:
                               (context, child, frame, wasSynchronouslyLoaded) {
                             return child;
@@ -128,12 +134,11 @@ class _CustomOrderDetailState extends State<CustomOrderDetail> {
                             if (loadingProgress == null) {
                               return child;
                             } else {
-                              return Center(
+                              return const Center(
                                 child: CircularProgressIndicator(),
                               );
                             }
                           }),
-                          elevation: 10,
                         )
                       : Container(
                           child: Center(child: Text("Photo Cake nahi hai!")),
@@ -146,9 +151,40 @@ class _CustomOrderDetailState extends State<CustomOrderDetail> {
                     thickness: 1,
                   ),
                   Text(
+                    "Flavour : " + flavour,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Pounds : " + weight.toString() + " Pounds",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  message != ""
+                      ? Text(
+                          "Message : " + message,
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        )
+                      : Container(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Divider(
+                    color: Colors.black,
+                    thickness: 1,
+                  ),
+                  Text(
                     "Instructions : " + particulars,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  )
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                 ],
               ),
             )
