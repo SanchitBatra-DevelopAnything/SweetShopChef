@@ -143,8 +143,22 @@ class _MyOrdersState extends State<MyOrders> {
                   .selectedOrderType = _toggled ? "custom" : "regular",
               Navigator.pop(context),
               !_toggled
-                  ? Navigator.of(context).pushNamed("/regDetail")
-                  : Navigator.of(context).pushNamed("/customDetail"),
+                  ? Navigator.of(context).pushNamed("/regDetail").then((_) => {
+                        setState(() => {
+                              isLoading = true,
+                            }),
+                        fetchOrdersOnRefresh()
+                            .then((value) => setState(() => isLoading = false))
+                      })
+                  : Navigator.of(context)
+                      .pushNamed("/customDetail")
+                      .then((_) => {
+                            setState(() => {
+                                  isLoading = true,
+                                }),
+                            fetchOrdersOnRefresh().then(
+                                (value) => setState(() => {isLoading = false}))
+                          }),
             });
   }
 
