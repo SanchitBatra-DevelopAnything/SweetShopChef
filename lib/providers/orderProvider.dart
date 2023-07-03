@@ -178,7 +178,9 @@ class OrdersProvider with ChangeNotifier {
   }
 
   void segregateOrders(List<dynamic> allOrders) {
-    allOrders = allOrders.where((element) => element['status'] != 'C').toList();
+    allOrders = allOrders
+        .where((element) => element['status'] != 'C')
+        .toList(); //cancelled orders dikhenge hi nahi!
     _customOrders = [];
     _regularOrders = [];
     var cakesPrepared = false;
