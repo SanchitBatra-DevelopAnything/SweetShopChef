@@ -178,6 +178,7 @@ class OrdersProvider with ChangeNotifier {
   }
 
   void segregateOrders(List<dynamic> allOrders) {
+    allOrders = allOrders.where((element) => element['status'] != 'C').toList();
     _customOrders = [];
     _regularOrders = [];
     var cakesPrepared = false;
