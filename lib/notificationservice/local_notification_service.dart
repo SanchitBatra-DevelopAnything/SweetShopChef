@@ -32,7 +32,6 @@ class LocalNotificationService {
           //     ),
           //   ),
           // );
-
         }
       },
     );
@@ -41,14 +40,16 @@ class LocalNotificationService {
   static void createanddisplaynotification(RemoteMessage message) async {
     try {
       final id = DateTime.now().millisecondsSinceEpoch ~/ 1000;
-      const NotificationDetails notificationDetails = NotificationDetails(
+      NotificationDetails notificationDetails = NotificationDetails(
         android: AndroidNotificationDetails(
           "Sweet-Shop-App-2",
           "Sweet-Shop-App-2",
           importance: Importance.max,
           priority: Priority.high,
           playSound: true,
-          sound: RawResourceAndroidNotificationSound('sound'),
+          sound: message.notification?.title?.contains("CANCELLED") == true
+              ? RawResourceAndroidNotificationSound('cancel')
+              : RawResourceAndroidNotificationSound('sound'),
         ),
       );
 
