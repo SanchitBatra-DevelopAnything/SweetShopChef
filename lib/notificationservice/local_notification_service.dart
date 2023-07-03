@@ -47,9 +47,7 @@ class LocalNotificationService {
           importance: Importance.max,
           priority: Priority.high,
           playSound: true,
-          sound: message.notification?.title?.contains("CANCELLED") == true
-              ? RawResourceAndroidNotificationSound('cancel')
-              : RawResourceAndroidNotificationSound('sound'),
+          sound: RawResourceAndroidNotificationSound('sound'),
         ),
       );
 
