@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:sweet_shop/providers/notificationProvider.dart';
-
 class OrdersProvider with ChangeNotifier {
   List<dynamic> _regularOrders = [];
   List<dynamic> _customOrders = [];
@@ -28,32 +26,33 @@ class OrdersProvider with ChangeNotifier {
   var workerType = "";
 
   Future<void> fetchOrders(String month, String year, String date) async {
+    print(month);
+    print(year);
+    print(date);
     _regularOrders = [];
     _customOrders = [];
     var url =
-        "https://shastri-nagar-shop-app-default-rtdb.firebaseio.com/activeOrders/" +
-            month +
-            "/" +
-            year +
-            "/" +
-            date +
-            '.json';
+        "https://shastri-nagar-shop-app-default-rtdb.firebaseio.com/activeOrders/${month}/${year}/${date}.json";
     try {
       final response = await http.get(Uri.parse(url));
       final List<dynamic> loadedOrders = [];
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
-      if (extractedData == null) {
-        print("null orders");
+      if (extractedData == "null") {
+        print("NO orders");
         return;
       }
+      print("FETCHED PROPERLY");
       extractedData.forEach((orderId, orderData) {
-        modifyDeliveryTime(orderData);
-        loadedOrders.add({
-          ...orderData,
-          "orderKey": orderId,
-          "cakesPrepared": false,
-          "snacksPrepared": false,
-        });
+        if (!(orderData['orderType'] == "regular" &&
+            orderData['items'] == null)) {
+          loadedOrders.add({
+            ...orderData,
+            "orderKey": orderId,
+            "cakesPrepared": false,
+            "snacksPrepared": false,
+          });
+          modifyDeliveryTime(orderData);
+        }
       });
       print("Loaded orders = ");
       print(loadedOrders);
@@ -65,13 +64,14 @@ class OrdersProvider with ChangeNotifier {
       notifyListeners();
       return;
     } catch (error) {
+      print("Error is = ${error}");
       throw error;
     }
   }
 
   void modifyDeliveryTime(dynamic orderData) {
     var time = orderData["deliveryTime"];
-    var timeArray = time.toString().split(":");
+    var timeArray = time.toString().trim().split(":");
     var hrs = int.parse(timeArray[0]);
     var modifiedHrs = hrs - 1;
     if (modifiedHrs == 0) {
