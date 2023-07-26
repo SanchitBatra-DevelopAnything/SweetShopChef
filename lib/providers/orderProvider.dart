@@ -273,6 +273,16 @@ class OrdersProvider with ChangeNotifier {
         .toList()[0]["message"];
   }
 
+  bool getCakeStatus() {
+    var st = _customOrders
+        .where((element) => element["orderKey"] == selectedOrderKey)
+        .toList()[0]["status"];
+    if (st == "ND") {
+      return false;
+    }
+    return true;
+  }
+
   num getPound() {
     return _customOrders
         .where((element) => element["orderKey"] == selectedOrderKey)

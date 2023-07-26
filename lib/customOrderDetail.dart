@@ -29,6 +29,7 @@ class _CustomOrderDetailState extends State<CustomOrderDetail> {
         Provider.of<OrdersProvider>(context, listen: false).getImgUrl();
     var photoUrl =
         Provider.of<OrdersProvider>(context, listen: false).getPhotoUrl();
+    _markedPrepared = Provider.of<OrdersProvider>(context).getCakeStatus();
     return Scaffold(
       appBar: AppBar(
         actions: [
