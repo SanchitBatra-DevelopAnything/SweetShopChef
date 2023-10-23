@@ -197,6 +197,8 @@ class OrdersProvider with ChangeNotifier {
                 {
                   cakeItems.add({...item, "indexedAt": index++})
                 }
+              else if (item['itemType'] == "FACTORY ITEM")
+                {print("its a factory item found")}
               else
                 {
                   snackItems.add({...item, "indexedAt": index++})
