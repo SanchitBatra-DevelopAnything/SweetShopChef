@@ -186,9 +186,9 @@ class OrdersProvider with ChangeNotifier {
     var cakesPrepared = false;
     var snacksPrepared = false;
     allOrders.forEach((element) {
-      if (element["orderType"] != "regular") {
+      if (element["orderType"] == "custom") {
         _customOrders.add(element);
-      } else {
+      } else if (element["orderType"] == "regular") {
         var cakeItems = [];
         var snackItems = [];
         var index = 0;
