@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:sweet_shop/providers/orderProvider.dart';
+import 'package:widget_zoom/widget_zoom.dart';
 
 class CustomOrderDetail extends StatefulWidget {
   const CustomOrderDetail({Key? key}) : super(key: key);
@@ -103,20 +104,24 @@ class _CustomOrderDetailState extends State<CustomOrderDetail> {
                     padding: EdgeInsets.only(bottom: 30),
                   ),
                   imgUrl != "not-uploaded"
-                      ? Card(
-                          child: Image.network(imgUrl, frameBuilder:
-                              (context, child, frame, wasSynchronouslyLoaded) {
-                            return child;
-                          }, loadingBuilder: (context, child, loadingProgress) {
-                            if (loadingProgress == null) {
+                      ? WidgetZoom(
+                          zoomWidget: Card(
+                            child: Image.network(imgUrl, frameBuilder: (context,
+                                child, frame, wasSynchronouslyLoaded) {
                               return child;
-                            } else {
-                              return Center(
-                                child: CircularProgressIndicator(),
-                              );
-                            }
-                          }),
-                          elevation: 10,
+                            }, loadingBuilder:
+                                (context, child, loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              } else {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                            }),
+                            elevation: 10,
+                          ),
+                          heroAnimationTag: 'tag',
                         )
                       : Container(
                           child: Center(
@@ -126,20 +131,25 @@ class _CustomOrderDetailState extends State<CustomOrderDetail> {
                     padding: EdgeInsets.only(bottom: 30),
                   ),
                   photoUrl != "not-uploaded"
-                      ? Card(
-                          elevation: 10,
-                          child: Image.network(photoUrl, frameBuilder:
-                              (context, child, frame, wasSynchronouslyLoaded) {
-                            return child;
-                          }, loadingBuilder: (context, child, loadingProgress) {
-                            if (loadingProgress == null) {
+                      ? WidgetZoom(
+                          zoomWidget: Card(
+                            elevation: 10,
+                            child: Image.network(photoUrl, frameBuilder:
+                                (context, child, frame,
+                                    wasSynchronouslyLoaded) {
                               return child;
-                            } else {
-                              return const Center(
-                                child: CircularProgressIndicator(),
-                              );
-                            }
-                          }),
+                            }, loadingBuilder:
+                                (context, child, loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              } else {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                            }),
+                          ),
+                          heroAnimationTag: 'tag',
                         )
                       : Container(
                           child: Center(child: Text("Photo Cake nahi hai!")),
