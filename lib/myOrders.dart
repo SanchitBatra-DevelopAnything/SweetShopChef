@@ -31,9 +31,13 @@ class _MyOrdersState extends State<MyOrders> {
 
     FirebaseMessaging.instance.getInitialMessage().then(
       (message) {
+        // print("Wanna play sound?????? YES!");
+        // final player = AudioCache();
+        // player.play('sound.mp3');
         print("FirebaseMessaging.instance.getInitialMessage");
         if (message != null) {
           print("New Notification");
+
           // if (message.data['_id'] != null) {
           //   Navigator.of(context).push(
           //     MaterialPageRoute(
@@ -58,7 +62,7 @@ class _MyOrdersState extends State<MyOrders> {
           print(message.notification!.title);
           print(message.notification!.body);
           print("message.data11 ${message.data}");
-          LocalNotificationService.createanddisplaynotification(message);
+          //LocalNotificationService.createanddisplaynotification(message);
         }
       },
     );
@@ -67,6 +71,9 @@ class _MyOrdersState extends State<MyOrders> {
     FirebaseMessaging.onMessageOpenedApp.listen(
       (message) {
         print("FirebaseMessaging.onMessageOpenedApp.listen");
+        print("Wanna play sound?????? YES!");
+        final player = AudioCache();
+        player.play('sound.mp3');
         if (message.notification != null) {
           print(message.notification!.title);
           print(message.notification!.body);

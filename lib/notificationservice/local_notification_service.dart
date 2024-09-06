@@ -47,6 +47,8 @@ class LocalNotificationService {
           importance: Importance.max,
           priority: Priority.high,
           playSound: true,
+          enableVibration: true,
+          enableLights: true,
           sound: RawResourceAndroidNotificationSound('sound'),
         ),
       );
